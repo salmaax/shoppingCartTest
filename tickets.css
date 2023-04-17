@@ -1,0 +1,316 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Oswald&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body {
+  background: black;
+}
+.center {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  /* position: absolute; */
+}
+.ring {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  animation: ring 2s linear infinite;
+}
+@keyframes ring {
+  0% {
+    transform: rotate(0deg);
+    box-shadow: 1px 5px 2px #e6c400;
+  }
+  50% {
+    transform: rotate(180deg);
+    box-shadow: 1px 5px 2px #ebd40c;
+  }
+  100% {
+    transform: rotate(360deg);
+    box-shadow: 1px 5px 2px #0456c8;
+  }
+}
+.ring:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+.center span {
+  color: #fedf4b;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 12.5rem;
+  animation: text 3s ease-in-out linear;
+}
+@keyframes slide_up {
+  0% {
+    transform: translateY(15.625rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+::-webkit-scrollbar {
+  width: 0.3rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: black;
+  border: 0.1px solid;
+  border-color: #fedf4b;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #fedf4b;
+}
+
+/* Handle on hover */
+/* ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+} */
+header {
+  display: flex;
+  width: 100%;
+  position: sticky;
+  top: 0%;
+  z-index: 999;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.label {
+  font-family: "oswald", sans-serif;
+  display: flex;
+  color: #fedf4b;
+  justify-content: center;
+  font-size: 2.5rem;
+  text-decoration: none;
+}
+.options {
+  position: relative;
+}
+.options::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ffff00;
+  transform-origin: center;
+  transition: transform 0.25s ease-out;
+  transform: scaleX(0);
+}
+.options:hover::after {
+  transform: scaleX(1);
+}
+.navbar {
+  display: flex;
+  flex-direction: row;
+}
+.navig {
+  display: flex;
+  align-items: center;
+}
+.navig a {
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  color: #fedf4b;
+  font-family: "lato", sans-serif;
+  margin-left: 35px;
+  padding-bottom: 5px;
+}
+
+.tickets {
+  margin: 2rem;
+  margin-top: 2rem;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+}
+.tickets .cart-tickets h3 {
+  background-color: #fedf4b;
+  font-family: "oswald", sans-serif;
+  font-size: 5rem;
+  width: 52rem;
+  height: 6rem;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+.ticket_image {
+  /* width: 18.5rem; */
+  width: 22rem;
+  height: 19rem;
+  border-bottom: 1px solid #fedf4b;
+}
+.cart-tickets {
+  margin-top: 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.cart a {
+  text-decoration: none;
+  text-decoration: none;
+  color: #fedf4b;
+  font-family: "lato", sans-serif;
+  margin-right: 40px;
+  padding-bottom: 5px;
+}
+.cart {
+  /* position: relative; */
+  display: block;
+}
+
+.cart-list {
+  display: none;
+  min-height: 50vh;
+  min-width: 20rem;
+  background-color: rgba(24, 24, 21, 0.815);
+  border-radius: 13%;
+  position: absolute;
+  right: 5%;
+  margin: 1rem;
+  padding: 1rem;
+  color: #fedf4b;
+  font-family: "lato", sans-serif;
+  /* how do i make a scrollbar when overflow of products occurs? */
+}
+.cart-inside {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+.close-cart {
+  display: none;
+  height: fit-content;
+  width: 1.3rem;
+  position: absolute;
+  color: black;
+  border: none;
+  border-radius: 10%;
+  font-weight: 300;
+  padding: 0.2rem;
+  background-color: #fedf4b;
+  font-size: large;
+  cursor: pointer;
+}
+
+.ticketButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 1.5%;
+}
+.ticketButtons p {
+  color: #fedf4b;
+  font-family: "lato", sans-serif;
+}
+.ticketButtons button {
+  background-color: #fedf4b;
+  border-radius: 5%;
+  border: none;
+  padding: 0.2rem;
+  margin: 0.2rem;
+  font-family: "lato", sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.notes {
+  color: #fedf4b;
+  font-family: "lato", sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  line-height: 1.5;
+  justify-content: start;
+  transition: 0.8s;
+  position: relative;
+}
+
+.cardt {
+  border: 1px solid #fedf4b;
+  margin-right: 2rem;
+  margin-bottom: 2%;
+  color: white;
+}
+.tickets .headline h3 {
+  text-transform: uppercase;
+  color: #fedf4b;
+  font-family: "oswald", sans-serif;
+  font-size: 3rem;
+  padding-left: 1rem;
+  letter-spacing: 0.9rem;
+}
+.tickets .headline {
+  border-bottom: 2px solid #fedf4b;
+}
+.cardinCart {
+  height: 100%;
+  width: 100%;
+  border-bottom: 1px solid #fedf4b;
+  display: flex;
+  margin: 2%;
+}
+.removeButton {
+  background-color: #fedf4b;
+  height: fit-content;
+  border-radius: 5%;
+  border: none;
+  padding: 0.15rem;
+  margin: 0.2rem;
+  font-family: "lato", sans-serif;
+  font-size: 0.7rem;
+  text-transform: capitalize;
+  cursor: pointer;
+  align-self: end;
+}
+.removeButton:hover {
+  color: rgb(179, 1, 1);
+}
+/* .total-price {
+  height: 50vh;
+  text-align: center;
+  background-color: white;
+  color: #fedf4b;
+  font-family: "lato", sans-serif;
+} */
+/* .imgcart {
+  width: 20%;
+  background-color: #fedf4b;
+  background-image: url("Assets\—Pngtree—retro admission tickets in the_6825470.png");
+} */
+/* <div class="imgcart">
+          <img
+          class="imgcart"
+          src="Assets\—Pngtree—retro admission tickets in the_6825470.png"
+          where="src"
+          alt=""
+          loading="lazy"
+          />
+        </div> */
